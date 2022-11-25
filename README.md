@@ -8,7 +8,7 @@ A SwiftUI photo picker library using `PhotosUI`.
 import DTPhotoPicker
 
 struct ContentView: View {
-var body: some View {
+    var body: some View {
         DTPhotoPicker(initialState: viewModel.initialState) { image, data in
             image
                 .resizable()
