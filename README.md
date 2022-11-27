@@ -9,7 +9,7 @@ import DTPhotoPicker
 
 struct ContentView: View {
 var body: some View {
-        DTPhotoPicker(initialState: viewModel.initialState) { image, data in
+        DTPhotoPicker { data, image in
             image
                 .resizable()
                 .scaledToFill()
