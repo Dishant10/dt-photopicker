@@ -170,9 +170,9 @@ public struct DTPhotoPicker<Content: View>: View {
                     }
             }
         }
-        .onAppear{
-            showingImage = true
-        }
+//        .onAppear{
+//            showingImage = true
+//        }
     }
 }
 
