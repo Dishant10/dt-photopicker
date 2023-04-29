@@ -165,9 +165,9 @@ public struct DTPhotoPicker<Content: View>: View {
                     .padding(10)
                     .background(Circle().opacity(0.3))
                     .padding()
-                    .onTapGesture {
-                        showingImage = true
-                    }
+//                    .onTapGesture {
+//                        showingImage = true
+//                    }
             }
         }
 //        .onAppear{
