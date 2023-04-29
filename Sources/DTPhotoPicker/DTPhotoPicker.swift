@@ -119,7 +119,7 @@ public struct DTPhotoPicker<Content: View>: View {
                         content(data, image)
                             .contextMenu{
                                 Button{
-                                    showingImage = false
+                                    showingImage.toggle()
                                     //image = nil
                                     // DTPhotoContainer(backgroundColor: backgroundColor) {
                                     //   DTPhotoEmptyPlaceholder()
@@ -172,9 +172,9 @@ public struct DTPhotoPicker<Content: View>: View {
                     .padding(10)
                     .background(Circle().opacity(0.3))
                     .padding()
-                    .onTapGesture {
-                        showingImage = true
-                    }
+//                    .onTapGesture {
+//                        showingImage = true
+//                    }
             }
         }
 //        .onTapGesture {
