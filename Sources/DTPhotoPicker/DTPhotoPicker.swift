@@ -111,7 +111,7 @@ public struct DTPhotoPicker<Content: View>: View {
     public var body: some View {
         Group {
             switch viewModel.imageState {
-            case .success(let image, let data):
+            case .success(var image, let data):
                 
                 if showingImage {
                     
@@ -120,6 +120,12 @@ public struct DTPhotoPicker<Content: View>: View {
                             .contextMenu{
                                 Button{
                                     showingImage = false
+                                    //image = nil
+                                    // DTPhotoContainer(backgroundColor: backgroundColor) {
+                                    //   DTPhotoEmptyPlaceholder()
+                                    //  }
+                                    
+                                    // return
                                 }
                             label:{
                                 Text("Delete Image")
@@ -166,14 +172,14 @@ public struct DTPhotoPicker<Content: View>: View {
                     .padding(10)
                     .background(Circle().opacity(0.3))
                     .padding()
-                //                    .onTapGesture {
-                //                        showingImage = true
-                //                    }
+                    .onTapGesture {
+                        showingImage = true
+                    }
             }
         }
-        .onTapGesture {
-            showingImage = true
-        }
+//        .onTapGesture {
+//            showingImage = true
+//        }
         //        .onAppear{
         //            showingImage = true
         //        }
