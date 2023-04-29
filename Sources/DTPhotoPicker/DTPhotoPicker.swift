@@ -113,6 +113,9 @@ public struct DTPhotoPicker<Content: View>: View {
             case .success(let image, let data):
                 DTPhotoContainer(backgroundColor: backgroundColor) {
                     content(data, image)
+                        .contextMenu{
+                            Text("New")
+                        }
                 }
                 
             case .loading:
