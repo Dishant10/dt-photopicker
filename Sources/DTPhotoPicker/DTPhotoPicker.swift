@@ -66,12 +66,12 @@ struct DTPhotoPickerModel: Transferable {
             let maxSize = CGSize(width: 1000, height: 1000)
             let availableRect = AVMakeRect(aspectRatio: uiImage.size, insideRect: CGRect(origin: .zero, size: maxSize))
             let targetSize = availableRect.size
-
+            
             let format = UIGraphicsImageRendererFormat()
             format.scale = 1
-
+            
             let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
-
+            
             let resizedUIImage = renderer.image { context in
                 uiImage.draw(in: CGRect(origin: .zero, size: targetSize))
             }
@@ -112,7 +112,9 @@ public struct DTPhotoPicker<Content: View>: View {
         Group {
             switch viewModel.imageState {
             case .success(let image, let data):
+                
                 if showingImage {
+                    
                     DTPhotoContainer(backgroundColor: backgroundColor) {
                         content(data, image)
                             .contextMenu{
@@ -126,7 +128,6 @@ public struct DTPhotoPicker<Content: View>: View {
                     }
                 }
                 else {
-                    
                     DTPhotoContainer(backgroundColor: backgroundColor) {
                         DTPhotoEmptyPlaceholder()
                     }
@@ -165,14 +166,17 @@ public struct DTPhotoPicker<Content: View>: View {
                     .padding(10)
                     .background(Circle().opacity(0.3))
                     .padding()
-//                    .onTapGesture {
-//                        showingImage = true
-//                    }
+                //                    .onTapGesture {
+                //                        showingImage = true
+                //                    }
             }
         }
-//        .onAppear{
-//            showingImage = true
-//        }
+        .onTapGesture {
+            showingImage = true
+        }
+        //        .onAppear{
+        //            showingImage = true
+        //        }
     }
 }
 
