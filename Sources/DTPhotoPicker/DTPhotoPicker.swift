@@ -107,15 +107,28 @@ public struct DTPhotoPicker<Content: View>: View {
         self.content = content
     }
     
+    @State var showingImage = true
     public var body: some View {
         Group {
             switch viewModel.imageState {
             case .success(let image, let data):
-                DTPhotoContainer(backgroundColor: backgroundColor) {
-                    content(data, image)
-                        .contextMenu{
-                            Text("New")
-                        }
+                if showingImage {
+                    DTPhotoContainer(backgroundColor: backgroundColor) {
+                        content(data, image)
+                            .contextMenu{
+                                Button{
+                                    showingImage = false
+                                }
+                            label:{
+                                Text("Delete Image")
+                            }
+                            }
+                    }
+                }
+                else {
+                    DTPhotoContainer(backgroundColor: backgroundColor) {
+                        DTPhotoEmptyPlaceholder()
+                    }
                 }
                 
             case .loading:
